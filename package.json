@@ -1,0 +1,22 @@
+{
+  "name": "weather-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sumancrest0001/weather-app.git"
+  },
+  "author": "suman stha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sumancrest0001/weather-app/issues"
+  },
+  "homepage": "https://github.com/sumancrest0001/weather-app#readme",
+  "devDependencies": {
+    "webpack": "^4.41.5"
+  }
+}
