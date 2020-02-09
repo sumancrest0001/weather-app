@@ -1,4 +1,4 @@
-@import 'reset';
+@import 'reset.css';
 
 :root {
   --input-color: #FFFFD0;
@@ -54,8 +54,12 @@ body {
 }
 
 .city {
-  font-size: 20px;
+  font-size: 50px;
   font-weight: 700;
+}
+#weather-icon {
+width: 100px;
+height: 100px;
 }
 .icon {
   display: block;
@@ -63,8 +67,23 @@ body {
   height: 50px;
   margin: auto;
 }
+
+#weather-description {
+  font-size: 30px;
+  font-weight: 400;
+}
+.info-section__temp {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.info-section__temp > p {
+  padding:  0 10px;
+}
+
 .hour-section {
   width: 96%;
+  height: 200px;
   margin: auto;
   margin-top: 30px;
   display: flex;
@@ -73,6 +92,7 @@ body {
 .card {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
   width: 10%;
   background: var(--card-bg-color);
   text-align: center;
