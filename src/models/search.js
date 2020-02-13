@@ -10,14 +10,14 @@ export default class Search {
   async getCurrentData() {
     try {
       const data = await axios(
-        `https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&appid=${key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${key}`
       );
       const searchData = data.data;
       this.city = searchData.name;
       this.country = searchData.sys.country;
-      this.temp = convertCelsius(searchData.main.temp);
-      this.maxTemp = convertCelsius(searchData.main.temp_max);
-      this.minTemp = convertCelsius(searchData.main.temp_min);
+      this.temp = searchData.main.temp;
+      this.maxTemp = searchData.main.temp_max;
+      this.minTemp = searchData.main.temp_min;
       this.windSpeed = searchData.wind.speed;
       this.weather = searchData.weather[0].main;
       this.icon = searchData.weather[0].icon;
@@ -30,9 +30,6 @@ export default class Search {
 
   }
 }
-function convertCelsius(kelvinTemp) {
-  return (kelvinTemp - 273.15).toFixed(2);
-}
 
 function formatTime(unixTimestamp) {
   const date = new Date(unixTimestamp * 1000);
@@ -42,3 +39,12 @@ function formatTime(unixTimestamp) {
   const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
   return formattedTime;
 }
+
+
+function correctTemp(temp, type) {
+  const convertedTemp = type === '℉' ? (temp * (9 / 5) + 32) : temp;
+  const result = `${convertedTemp.toFixed(2)} ${type}`;
+  return result;
+}
+
+export { correctTemp };

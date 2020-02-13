@@ -5,5 +5,7 @@ export const dom = {
   searchBtn: document.querySelector('.search__btn'),
   infoSection: document.querySelector('.info-section'),
   daySection: document.querySelector('.day-section'),
+  hourSection: document.querySelector('.hour-section'),
+  unitbtn: document.querySelector('.temp-unit'),
 }
 
