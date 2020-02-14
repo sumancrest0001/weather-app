@@ -1,12 +1,13 @@
-const path = require("path");
+const path = require('path');
+
 module.exports = {
-  entry: ["babel-polyfill", "./src/index.js"],
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
-    path: path.resolve(__dirname, "dist"),
-    filename: "main.js"
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'main.js',
   },
   devServer: {
-    contentBase: "./dist"
+    contentBase: './dist',
   },
   stats: { children: false },
 
@@ -16,9 +17,9 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
-      }
-    ]
-  }
+          loader: 'babel-loader',
+        },
+      },
+    ],
+  },
 };
