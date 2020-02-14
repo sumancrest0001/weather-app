@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { axios } from 'axios';
 import key from './config';
 
 function formatTime(unixTimestamp) {
