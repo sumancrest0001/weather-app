@@ -2,7 +2,7 @@ import Search from './models/search';
 import Future from './models/fiveDays';
 import * as searchView from './views/searchView';
 import * as fiveDaysView from './views/fiveDaysViews';
-import { dom } from './views/base';
+import dom from './views/base';
 
 const state = {
   type: '℃',
@@ -19,7 +19,7 @@ const mainController = async (query) => {
     searchView.clearLoader();
     alert('City not found');
   }
-}
+};
 
 const forecastController = async (query) => {
   state.future = new Future(query.city, query.country);
@@ -30,7 +30,7 @@ const forecastController = async (query) => {
   } catch (error) {
     alert('Unable to get 5 days data');
   }
-}
+};
 
 dom.searchBtn.addEventListener('click', () => {
   const query = searchView.getInput();
@@ -38,7 +38,6 @@ dom.searchBtn.addEventListener('click', () => {
   if (query) {
     mainController(query);
     forecastController(query);
-    console.log(dom.unitbtn);
   }
 });
 
@@ -51,7 +50,6 @@ dom.unitbtn.addEventListener('click', (e) => {
   searchView.renderCurrentData(state.search, state.type);
   fiveDaysView.renderDays(state.future.result, state.type);
   fiveDaysView.hourItem(state.future.result, 0, state.type);
-
 });
 
 dom.daySection.addEventListener('click', (e) => {
@@ -59,7 +57,7 @@ dom.daySection.addEventListener('click', (e) => {
   const element = targetedTag.id;
   const info = element.split('-');
   if (info[0] === 'day') {
-    const dayNumber = parseInt(info[1]);
+    const dayNumber = parseInt(info[1], 10);
 
     fiveDaysView.hourItem(state.future.result, dayNumber, state.type);
   }

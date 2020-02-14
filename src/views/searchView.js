@@ -1,4 +1,4 @@
-import { dom } from './base';
+import dom from './base';
 import { correctTemp } from '../models/search';
 
 export const getInput = () => {
@@ -15,7 +15,13 @@ export const clearForm = () => {
 
 const clearInfoSection = () => {
   dom.infoSection.innerHTML = '';
-}
+};
+
+export const getCountry = (shortName) => {
+  const countryTag = document.querySelector(`option[value = ${shortName}]`);
+  return countryTag.textContent;
+};
+
 export const renderCurrentData = (data, type) => {
   clearInfoSection();
   const html = `<div class="info-section__location">
@@ -35,15 +41,11 @@ export const renderCurrentData = (data, type) => {
     </div>`;
   dom.infoSection.insertAdjacentHTML('beforeend', html);
   dom.unitbtn.classList.add('visible');
-}
-
-export const getCountry = (shortName) => {
-  const countryTag = document.querySelector(`option[value = ${shortName}]`);
-  return countryTag.textContent;
 };
 
+
 export const renderLoader = () => {
-  const html = `<div class="loader"><i class="fa fa-refresh fa-spin"></i></div>`;
+  const html = '<div class="loader"><i class="fa fa-refresh fa-spin"></i></div>';
   dom.infoSection.insertAdjacentHTML('afterbegin', html);
 };
 

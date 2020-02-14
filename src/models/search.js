@@ -1,6 +1,14 @@
 import axios from 'axios';
-import { key } from './config';
-//import { searchData } from './searchdata';
+import key from './config';
+
+function formatTime(unixTimestamp) {
+  const date = new Date(unixTimestamp * 1000);
+  const hours = date.getHours();
+  const minutes = `0${date.getMinutes()}`;
+  const seconds = `0${date.getSeconds()}`;
+  const formattedTime = `${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+  return formattedTime;
+}
 export default class Search {
   constructor(city, country) {
     this.city = city;
@@ -10,7 +18,7 @@ export default class Search {
   async getCurrentData() {
     try {
       const data = await axios(
-        `https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${key}`
+        `https://api.openweathermap.org/data/2.5/weather?q=${this.city},${this.country}&units=metric&appid=${key}`,
       );
       const searchData = data.data;
       this.city = searchData.name;
@@ -27,19 +35,8 @@ export default class Search {
     } catch (error) {
       alert(error);
     }
-
   }
 }
-
-function formatTime(unixTimestamp) {
-  const date = new Date(unixTimestamp * 1000);
-  const hours = date.getHours();
-  const minutes = "0" + date.getMinutes();
-  const seconds = "0" + date.getSeconds();
-  const formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-  return formattedTime;
-}
-
 
 function correctTemp(temp, type) {
   const convertedTemp = type === '℉' ? (temp * (9 / 5) + 32) : temp;

@@ -1,15 +1,14 @@
 import { correctTemp } from '../models/search';
-import { dom } from './base';
+import dom from './base';
 
 function getDate(dataArr) {
-  let newArr = dataArr.split(' ').shift();
+  const newArr = dataArr.split(' ').shift();
   const arr = newArr.split('-').splice(1, 2);
   return arr.join('/');
 }
 
 function getHour(dataArr) {
-  let newArr = dataArr.split(' ').pop();
-  console.log(newArr);
+  const newArr = dataArr.split(' ').pop();
   newArr.split(':').splice(2, 1).join(':');
   return newArr;
 }
@@ -45,7 +44,7 @@ function hourItem(data, day, type) {
     <p>wind:${data[i].wind.speed} m/s</p>
   </div>`;
   }
-  dom.hourSection.insertAdjacentHTML("afterbegin", html);
+  dom.hourSection.insertAdjacentHTML('afterbegin', html);
 }
 
 export { renderDays, hourItem };
