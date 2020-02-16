@@ -1,4 +1,5 @@
 const dom = {
+  messageBox: document.querySelector('.message'),
   searchForm: document.getElementsByTagName('form'),
   cityInput: document.querySelector('.search__city'),
   countryInput: document.querySelector('.search__country'),
@@ -9,4 +10,10 @@ const dom = {
   unitbtn: document.querySelector('.temp-unit'),
 };
 
-export default dom;
+function displayMessage(msg) {
+  setTimeout(() => {
+    dom.messageBox.textContent = msg;
+  }, 2000);
+}
+
+export { dom, displayMessage };

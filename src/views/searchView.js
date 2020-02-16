@@ -1,4 +1,4 @@
-import dom from './base';
+import { dom } from './base';
 import { correctTemp } from '../models/search';
 
 export const getInput = () => {

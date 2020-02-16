@@ -1,5 +1,5 @@
 import { correctTemp } from '../models/search';
-import dom from './base';
+import { dom } from './base';
 
 function getDate(dataArr) {
   const newArr = dataArr.split(' ').shift();
@@ -14,6 +14,7 @@ function getHour(dataArr) {
 }
 
 function renderDays(data, type) {
+  dom.messageBox.textContent = '';
   dom.daySection.innerHTML = '';
   let html = ' ';
   for (let i = 0; i < 5; i += 1) {

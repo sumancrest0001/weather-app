@@ -1,5 +1,6 @@
-import { axios } from 'axios';
+import axios from 'axios';
 import key from './config';
+import { displayMessage } from '../views/base';
 
 function formatTime(unixTimestamp) {
   const date = new Date(unixTimestamp * 1000);
@@ -33,7 +34,7 @@ export default class Search {
       this.sunset = formatTime(searchData.sys.sunset);
       this.weatherDes = searchData.weather[0].description;
     } catch (error) {
-      alert(error);
+      displayMessage('Something is not ok');
     }
   }
 }

@@ -2,7 +2,7 @@ import Search from './models/search';
 import Future from './models/fiveDays';
 import * as searchView from './views/searchView';
 import * as fiveDaysView from './views/fiveDaysViews';
-import dom from './views/base';
+import { dom, displayMessage } from './views/base';
 
 const state = {
   type: '℃',
@@ -17,7 +17,7 @@ const mainController = async (query) => {
     searchView.renderCurrentData(state.search, state.type);
   } catch (error) {
     searchView.clearLoader();
-    alert('City not found');
+    displayMessage('City not found');
   }
 };
 
@@ -28,7 +28,7 @@ const forecastController = async (query) => {
     fiveDaysView.renderDays(state.future.result, state.type);
     fiveDaysView.hourItem(state.future.result, 0, state.type);
   } catch (error) {
-    alert('Unable to get 5 days data');
+    displayMessage('Unable to get 5 days data');
   }
 };
 
