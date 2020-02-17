@@ -5,6 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "webpack --mode development",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --open"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,18 @@
   },
   "homepage": "https://github.com/sumancrest0001/weather-app#readme",
   "devDependencies": {
-    "webpack": "^4.41.5"
+    "babel-loader": "^8.0.6",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "axios": "^0.19.2",
+    "babel-polyfill": "^6.26.0"
   }
 }
